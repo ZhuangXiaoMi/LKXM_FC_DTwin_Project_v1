@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LKXM.FCDTwin.Entity</name>
+    </assembly>
+    <members>
+        <member name="T:LKXM.FCDTwin.Entity.EntityRoot">
+            <summary>
+            聚合根
+            </summary>
+        </member>
+        <member name="P:LKXM.FCDTwin.Entity.EntityRoot.id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:LKXM.FCDTwin.Entity.EntityRoot.create_uid">
+            <summary>
+            创建用户Id
+            </summary>
+        </member>
+        <member name="P:LKXM.FCDTwin.Entity.EntityRoot.create_at">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:LKXM.FCDTwin.Entity.EntityRoot.update_uid">
+            <summary>
+            更新用户Id
+            </summary>
+        </member>
+        <member name="P:LKXM.FCDTwin.Entity.EntityRoot.update_at">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:LKXM.FCDTwin.Entity.EntityRoot.normal">
+            <summary>
+            数据状态：0 正常 1 删除
+            </summary>
+        </member>
+        <member name="T:LKXM.FCDTwin.Entity.TTest">
+            <summary>
+            测试表
+            </summary>
+        </member>
+        <member name="P:LKXM.FCDTwin.Entity.TTest.name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:LKXM.FCDTwin.Entity.TTest.age">
+            <summary>
+            年龄
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LKXM.FCDTwin.Api</name>
+    </assembly>
+    <members>
+        <member name="M:LKXM.FCDTwin.Api.Controllers.TTestController.Init">
+            <summary>
+            初始化
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

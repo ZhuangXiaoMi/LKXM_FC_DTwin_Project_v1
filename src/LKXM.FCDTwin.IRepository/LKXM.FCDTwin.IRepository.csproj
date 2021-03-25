@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LKXM.FCDTwin.Dto\LKXM.FCDTwin.Dto.csproj" />
+    <ProjectReference Include="..\LKXM.FCDTwin.Entity\LKXM.FCDTwin.Entity.csproj" />
+  </ItemGroup>
+
+</Project>

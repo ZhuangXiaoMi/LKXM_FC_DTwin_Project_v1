@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>..\LKXM.FCDTwin.Api\LKXM.FCDTwin.Api.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LKXM.FCDTwin.Infrastructure\LKXM.FCDTwin.Infrastructure.csproj" />
+    <ProjectReference Include="..\LKXM.FCDTwin.IService\LKXM.FCDTwin.IService.csproj" />
+    <ProjectReference Include="..\LKXM.FCDTwin.Repository.PostgreSQL\LKXM.FCDTwin.Repository.PostgreSQL.csproj" />
+    <ProjectReference Include="..\LKXM.FCDTwin.Service\LKXM.FCDTwin.Service.csproj" />
+  </ItemGroup>
+
+</Project>
