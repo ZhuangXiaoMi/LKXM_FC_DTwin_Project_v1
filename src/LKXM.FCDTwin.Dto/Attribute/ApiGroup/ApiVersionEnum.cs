@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace LKXM.FCDTwin.Infrastructure
+namespace LKXM.FCDTwin.Dto
 {
     public enum ApiVersionEnum
     {

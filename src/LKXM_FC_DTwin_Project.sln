@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LKXM.FCDTwin.Dto", "LKXM.FC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LKXM.FCDTwin.Util", "LKXM.FCDTwin.Util\LKXM.FCDTwin.Util.csproj", "{8491AFCD-959E-4A9A-9B6E-F107838FDAF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp", "BlazorApp\BlazorApp.csproj", "{DE43E22C-89FB-4A35-9C11-6664D34DE1EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp", "BlazorApp\BlazorApp.csproj", "{DE43E22C-89FB-4A35-9C11-6664D34DE1EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

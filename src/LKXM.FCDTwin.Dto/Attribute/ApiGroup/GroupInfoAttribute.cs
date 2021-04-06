@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace LKXM.FCDTwin.Infrastructure
+namespace LKXM.FCDTwin.Dto
 {
     /// <summary>
     /// 系统分组枚举信息特性

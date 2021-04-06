@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.ApiExplorer;
+﻿using LKXM.FCDTwin.Dto;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using System;
 
 namespace LKXM.FCDTwin.Infrastructure

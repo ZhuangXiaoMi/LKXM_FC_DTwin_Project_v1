@@ -4,6 +4,11 @@
         <name>LKXM.FCDTwin.Api</name>
     </assembly>
     <members>
+        <member name="T:LKXM.FCDTwin.Api.Controllers.HealthCheckController">
+            <summary>
+            Consul 心跳检测地址
+            </summary>
+        </member>
         <member name="M:LKXM.FCDTwin.Api.Controllers.TTestController.Init">
             <summary>
             初始化

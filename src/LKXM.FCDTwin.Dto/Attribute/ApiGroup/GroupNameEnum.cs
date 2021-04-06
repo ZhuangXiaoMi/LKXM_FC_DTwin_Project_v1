@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LKXM.FCDTwin.Infrastructure
+namespace LKXM.FCDTwin.Dto
 {
     /// <summary>
     /// 系统分组枚举

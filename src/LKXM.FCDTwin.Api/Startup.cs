@@ -32,12 +32,13 @@ namespace LKXM.FCDTwin.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
+            
             services.AddDbContext<ApiDbContext>(p =>
             {
                 p.UseNpgsql(Configuration["ConnectionStrings:FCDTwinDbContext"], p => p.CommandTimeout(10));
             });
             services.AddSwaggerService();
+            services.AddConsulRegistryService(Configuration);
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
@@ -57,6 +58,7 @@ namespace LKXM.FCDTwin.Api
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseStatusCodePages();
+            app.UseConsulRegistryConfigure();
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
