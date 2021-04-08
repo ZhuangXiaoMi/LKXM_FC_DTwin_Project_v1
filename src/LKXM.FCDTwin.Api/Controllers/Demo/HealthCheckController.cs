@@ -8,12 +8,13 @@ namespace LKXM.FCDTwin.Api.Controllers
     /// <summary>
     /// Consul 心跳检测地址
     /// </summary>
-    //[Route("api/[controller]/[action]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     [ApiGroup(GroupNameEnum.Test)]
     public class HealthCheckController : BaseController
     {
         [HttpGet]
+        [Route("/api/health_check")]
         public ActionResult GetHealthCheck()
         {
             Console.WriteLine("进行心跳检测");
