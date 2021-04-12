@@ -15,5 +15,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:LKXM.FCDTwin.Api.Controllers.TTestController.GetList">
+            <summary>
+            获取列表
+            </summary>
+            <returns></returns>
+        </member>
     </members>
 </doc>

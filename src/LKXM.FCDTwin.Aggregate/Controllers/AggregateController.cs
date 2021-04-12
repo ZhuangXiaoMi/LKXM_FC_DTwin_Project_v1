@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using LKXM.FCDTwin.Aggregate.Services;
+using LKXM.FCDTwin.Entity;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace LKXM.FCDTwin.Aggregate.Controllers
@@ -10,9 +10,17 @@ namespace LKXM.FCDTwin.Aggregate.Controllers
     [ApiController]
     public class AggregateController : Controller
     {
-        public IActionResult Index()
+        private readonly IServiceClient _serviceClient;
+
+        public AggregateController(IServiceClient serviceClient)
         {
-            return View();
+            _serviceClient = serviceClient;
+        }
+
+        public async Task<ActionResult<List<TTest>>> Get()
+        {
+            List<TTest> tests = await _serviceClient.GetTest();
+            return tests;
         }
     }
 }

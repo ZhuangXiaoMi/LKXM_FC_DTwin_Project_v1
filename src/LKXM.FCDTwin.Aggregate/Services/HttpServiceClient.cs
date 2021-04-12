@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using LKXM.FCDTwin.Entity;
 using LKXM.FCDTwin.Infrastructure.Registry;
-using LKXM.FCDTwin.Infrastructure.Cluster;
-using LKXM.FCDTwin.Entity;
-using LKXM.FCDTwin.Dto;
-using System.Net.Http;
-using System.Net;
-using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace LKXM.FCDTwin.Aggregate.Services
 {
@@ -17,37 +11,27 @@ namespace LKXM.FCDTwin.Aggregate.Services
     /// </summary>
     public class HttpServiceClient : IServiceClient
     {
-        public readonly IServiceDiscovery _serviceDiscovery;
-        public readonly ILoadBalance _loadBalance;
-        public readonly IHttpClientFactory _httpClientFactory;
+        private readonly ConsulHttpClient _consulHttpClient;
         private readonly string ServiceSchme = "http";
-        private readonly string ServiceName = "service";
-        private readonly string ServiceLink = "/api";
+        private readonly string ServiceName = "fcdtwin";
+        private readonly string ServiceLink = "/api/t_test/list";
 
-        public HttpServiceClient(IServiceDiscovery serviceDiscovery, ILoadBalance loadBalance, IHttpClientFactory httpClientFactory)
+        public HttpServiceClient(ConsulHttpClient consulHttpClient)
         {
-            _serviceDiscovery = serviceDiscovery;
-            _loadBalance = loadBalance;
-            _httpClientFactory = httpClientFactory;
+            _consulHttpClient = consulHttpClient;
         }
 
-        public async Task<IList<TTest>> GetTest()
+        public async Task<List<TTest>> GetTest()
         {
-            //获取服务
-            IList<ServiceUrl> serviceUrls = await _serviceDiscovery.Discovery(ServiceName);
-            //负载均衡服务
-            ServiceUrl serviceUrl = _loadBalance.Select(serviceUrls);
-            //建立请求
-            HttpClient httpClient = _httpClientFactory.CreateClient("fcdtwin");
-            HttpResponseMessage httpResponse  = await httpClient.GetAsync(serviceUrl + ServiceLink);
-
-            IList<TTest> tests = null;
-            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            List<TTest> tests = null;
+            try
             {
-                string json = await httpResponse.Content.ReadAsStringAsync();
-                tests = JsonConvert.DeserializeObject<List<TTest>>(json);
+                tests = await _consulHttpClient.GetAsync<List<TTest>>(ServiceSchme, ServiceName, ServiceLink);
             }
+            catch (Exception ex)
+            {
 
+            }
             return tests;
         }
     }

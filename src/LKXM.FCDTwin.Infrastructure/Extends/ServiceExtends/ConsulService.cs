@@ -1,4 +1,5 @@
 ﻿using LKXM.FCDTwin.Dto;
+using LKXM.FCDTwin.Infrastructure.Cluster;
 using LKXM.FCDTwin.Infrastructure.Registry;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -39,6 +40,23 @@ namespace LKXM.FCDTwin.Infrastructure
 
             //2.注册Consul服务发现
             services.AddSingleton<IServiceDiscovery, ConsulServiceDiscovery>();
+            return services;
+        }
+
+        /// <summary>
+        /// 添加consul
+        /// </summary>
+        /// <typeparam name="ConsulHttpClient"></typeparam>
+        /// <param name="services"></param>
+        /// <returns></returns>
+        public static IServiceCollection AddHttpClientConsulService<ConsulHttpClient>(this IServiceCollection services) where ConsulHttpClient : class
+        {
+            //注册consul服务发现
+            services.AddConsulDiscoveryService();
+            //注册服务负载均衡
+            services.AddSingleton<ILoadBalance, RandomLoadBalance>();
+            //注册httpclient
+            services.AddSingleton<ConsulHttpClient>();
             return services;
         }
     }

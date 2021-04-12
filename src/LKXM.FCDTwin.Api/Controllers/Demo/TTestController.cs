@@ -1,7 +1,10 @@
 ﻿using LKXM.FCDTwin.Dto;
+using LKXM.FCDTwin.Entity;
 using LKXM.FCDTwin.Infrastructure;
 using LKXM.FCDTwin.IService;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LKXM.FCDTwin.Api.Controllers
 {
@@ -26,5 +29,17 @@ namespace LKXM.FCDTwin.Api.Controllers
         public ResultResDto Init()
             => _tTestService.Init();
 
+        /// <summary>
+        /// 获取列表
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("/api/t_test/list")]
+        public ResultResDto<List<TTest>> GetList()
+        {
+            var result = new ResultResDto<List<TTest>>();
+            result.data = _tTestService.Find(null).ToList();
+            return result;
+        }
     }
 }

@@ -38,7 +38,7 @@ namespace LKXM.FCDTwin.Api
                 p.UseNpgsql(Configuration["ConnectionStrings:FCDTwinDbContext"], p => p.CommandTimeout(10));
             });
             services.AddSwaggerService();
-            //services.AddConsulRegistryService(Configuration);
+            services.AddConsulRegistryService(Configuration);
         }
 
         public void ConfigureContainer(ContainerBuilder builder)

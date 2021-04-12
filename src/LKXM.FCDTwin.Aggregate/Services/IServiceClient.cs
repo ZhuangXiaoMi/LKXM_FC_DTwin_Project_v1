@@ -1,11 +1,11 @@
-﻿using System;
+﻿using LKXM.FCDTwin.Entity;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace LKXM.FCDTwin.Aggregate.Services
 {
-    interface IServiceClient
+    public interface IServiceClient
     {
+        Task<List<TTest>> GetTest();
     }
 }
